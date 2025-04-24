@@ -8,3 +8,7 @@
 
 ・scrapy genspider googlemap_basic www.google.co.jp/maps
 
+・GitHubでリポジトリ作成
+・Push（https://github.com/masashi-hirai/scrape-basicTemplate.git）
+
+
