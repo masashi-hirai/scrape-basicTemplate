@@ -1,0 +1,10 @@
+・Anaconda　好きな環境を選んでターミナル起動　今回作成する場所にcd で移動
+
+・mkdir projects
+
+・cd projects
+
+・scrapy startproject basicTemlate_scrape
+
+・scrapy genspider googlemap_basic www.google.co.jp/maps
+
