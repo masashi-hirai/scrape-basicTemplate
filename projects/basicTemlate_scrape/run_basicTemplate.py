@@ -1,5 +1,4 @@
 import sys
-import os
 from scrapy.crawler import CrawlerProcess
 
 # scrapy.cftに記載のProject名.spiders.スパイダーのname　import スパイダーのクラス名
