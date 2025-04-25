@@ -22,3 +22,14 @@
     とLogにでた・・
     　⇒Scrapy が settings.py を読み込もうとしたけど、「rakutenTrabel なんてモジュール知らんよ…」ってなってます。これは PyInstaller に .cfg や rakutenTrabel/ パッケージがうまくバンドルされていないことが原因。
     　　　⇒pyinstaller run_basicTemplate.py --onefile --add-data "basicTemlate_scrape;basicTemlate_scrape" --add-data "scrapy.cfg;."
+
+
+・ファイル名変更（run_basicTemplate⇒run_basicTemplate_Googlemap）
+
+～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+・Spider追加
+　・run_basicTemplate_Jaran
+  ・jaran.py
+  
+
