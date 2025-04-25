@@ -1,4 +1,5 @@
 import sys
+import os
 from scrapy.crawler import CrawlerProcess
 
 # scrapy.cftに記載のProject名.spiders.スパイダーのname　import スパイダーのクラス名
@@ -7,6 +8,11 @@ from scrapy.utils.project import get_project_settings
 
 sys.stdout = open('log.txt', 'w', encoding='utf-8')
 sys.stderr = sys.stdout
+
+# Scrapyプロジェクトのルート（scrapy.cfgがある場所）を明示的に指定
+project_root = os.path.dirname(os.path.abspath(__file__))
+os.environ['SCRAPY_SETTINGS_MODULE'] = 'basicTemlate_scrape.settings'
+sys.path.append(project_root)
 
 if __name__ == "__main__":
     print("スクレイピング開始")
@@ -17,15 +23,12 @@ if __name__ == "__main__":
     else:
         keyword = "南足柄　公園"  # デフォルト値（なければエラーでもOK）
 
-
     from datetime import datetime
     # 日付を取得（例：'20250423'）
     date_str = datetime.now().strftime("%Y%m%d_%H%M")
     safe_keyword = keyword.replace(" ", "_").replace("\u3000", "_")
     # ファイル名を組み立て
     file_name = f"output_{safe_keyword}_{date_str}.csv"
-
-
 
     # 設定読み込み + 上書き
     settings = get_project_settings()
@@ -36,8 +39,6 @@ if __name__ == "__main__":
             "overwrite": True
         }
     })
-
-
     process = CrawlerProcess(settings)
     process.crawl(GooglemapBasicSpider, keyword=keyword)
     process.start()

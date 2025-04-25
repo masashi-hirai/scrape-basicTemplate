@@ -8,7 +8,7 @@ import re
 class GooglemapBasicSpider(scrapy.Spider):
     name = 'googlemap_basic'
     allowed_domains = ['google.co.jp']
-    start_urls = ['https://www.google.co.jp/maps/?hl=ja']
+    # start_urls = ['https://www.google.co.jp/maps/?hl=ja']
 
     def __init__(self, keyword=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
