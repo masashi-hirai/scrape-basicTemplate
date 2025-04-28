@@ -28,8 +28,18 @@
 
 ～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
 ～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
 ・Spider追加
 　・run_basicTemplate_Jaran
   ・jaran.py
-  
 
+・Exe作成
+  ・cd run_basicTemplate_Jaran.pyの場所
+　　 pyinstaller run_basicTemplate_Jaran.py --onefile --add-data "basicTemlate_scrape;basicTemlate_scrape" --add-data "scrapy.cfg;."
+
+・Exe実行
+　・PowerShell起動
+　・cd ↑でできた「dist」フォルダに移動
+　・「.\run_basicTemplate_Jaran.exe 「URL」」をコマンド実行
+    
