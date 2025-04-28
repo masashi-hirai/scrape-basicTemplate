@@ -26,9 +26,21 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 7
+
+
+
+# ケース	DOWNLOAD_DELAY の目安
+# 開発・テスト中	1〜2秒
+# 軽い運用	2〜4秒
+# 慎重な運用	5〜7秒（今のあなたの設定）
+# 超安全志向	7秒以上 + AutoThrottle
+DOWNLOAD_DELAY = 5
 # The download delay setting will honor only one of:
+
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
+# --- 同一ドメインへの同時リクエスト数制限 ---
+CONCURRENT_REQUESTS_PER_DOMAIN = 2  # 最大でも2つ同時まで（1ならさらにやさしい）
+
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
@@ -84,6 +96,16 @@ DOWNLOADER_MIDDLEWARES = {
 # Enable showing throttling stats for every response received:
 #AUTOTHROTTLE_DEBUG = False
 
+# --- AutoThrottle機能：レスポンス速度に応じて自動調整 ---
+AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_START_DELAY = 1.0     # 最初のリクエスト間隔（秒）
+AUTOTHROTTLE_MAX_DELAY = 10.0      # 最大待機時間（秒）
+AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0  # 同時接続の目標数（1が人間っぽい）
+AUTOTHROTTLE_DEBUG = False  # Trueにするとログに調整情報を表示
+
+
+
+
 # Enable and configure HTTP caching (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
 #HTTPCACHE_ENABLED = True
@@ -99,3 +121,17 @@ SELENIUM_DRIVER_NAME = 'chrome'
 SELENIUM_DRIVER_EXECUTABLE_PATH = 'C:/Users/hhara/OneDrive/ドキュメント/work/reskiling/ScrapySpider_BasicTemplate/projects/basicTemlate_scrape/chromedriver.exe'
 SELENIUM_DRIVER_ARGUMENTS=['-headless']  # '--headless' if using chrome instead of firefox
 FEED_EXPORT_ENCODING ='utf-8'
+
+
+
+# # --- リトライ設定（失敗時の自動リトライ） ---
+# RETRY_ENABLED = True
+# RETRY_TIMES = 3  # 最大リトライ回数
+# RETRY_HTTP_CODES = [500, 502, 503, 504, 522, 524, 408, 429]
+
+# # --- リトライ時の待機時間（秒）---
+# RETRY_DELAY = 5  # 5秒待ってからリトライ（アクセスしすぎを避ける）
+
+
+# --- ログレベル（不要なら） ---
+LOG_LEVEL = 'INFO'  # DEBUGだと大量に出るので注意

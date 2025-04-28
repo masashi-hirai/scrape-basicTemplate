@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # 日付を取得（例：'20250423'）
     date_str = datetime.now().strftime("%Y%m%d_%H%M")
     # ファイル名を組み立て
-    file_name = f"output_jaran_{date_str}.csv"
+    file_name = f"output_jaran_{date_str}"
 
     # 設定読み込み + 上書き
     settings = get_project_settings()

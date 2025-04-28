@@ -28,7 +28,7 @@ if __name__ == "__main__":
     date_str = datetime.now().strftime("%Y%m%d_%H%M")
     safe_keyword = keyword.replace(" ", "_").replace("\u3000", "_")
     # ファイル名を組み立て
-    file_name = f"output_{safe_keyword}_{date_str}.csv"
+    file_name = f"output_{safe_keyword}_{date_str}"
 
     # 設定読み込み + 上書き
     settings = get_project_settings()
